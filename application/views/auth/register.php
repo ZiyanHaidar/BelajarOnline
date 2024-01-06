@@ -1,22 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Register</title>
+    <title>Belajar Online</title>
+    <!-- Font Awesome CDN link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
+        /* CSS Anda di sini */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        .login-register {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .login-register button {
+            padding: 8px 16px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #ffffff;
+            background-color: #333333;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-register button:hover {
+            background-color: #555555;
+        }
+
+        header {
+            background-color: #f9f9f9;
+            color: #333333;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             display: flex;
-            justify-content: center;
+            /* Menjadikan header sebagai flex container */
+            justify-content: flex-start;
+            /* Menjadikan konten header berada di kiri */
             align-items: center;
-            height: 100vh;
+            /* Memusatkan vertikal konten header */
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2em;
+            display: inline-block;
+            /* Menjadikan teks h1 menjadi inline block */
+        }
+
+        h1 a {
+            color: #888888;
+            text-decoration: none;
+        }
+
+        h1 a:hover {
+            color: #333333;
+        }
+
+        /* Hilangkan hero */
+        .hero {
+            display: none;
+        }
+
+        /* Isi CSS Anda di sini */
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        footer {
+            margin-top: 100px;
+            background-color: #333333;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        footer nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
         }
 
         .form-container {
+            margin: 0 auto;
             max-width: 400px;
             width: 100%;
             padding: 20px;
@@ -57,28 +142,14 @@
             transform: translateY(-50%);
             cursor: pointer;
         }
-        button[type="button"] {
-            display: block;
-            width: 15%;
-            padding: 5px;
-            margin-top: 10px;
-            background-color: #ff6600;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
 
-        button[type="button"]:hover {
-            background-color: #e55900;
-        }
+
         button[type="submit"] {
             display: block;
             width: 100%;
             padding: 10px;
             margin-top: 10px;
-            background-color: #ff6600;
+            background-color: #000000;
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -87,8 +158,9 @@
         }
 
         button[type="submit"]:hover {
-            background-color: #e55900;
+            background-color: #333333;
         }
+
         a {
             display: block;
             text-align: center;
@@ -96,51 +168,53 @@
             margin-top: 10px;
             text-decoration: none;
         }
-        
     </style>
 </head>
-<body>
-    <!-- Form Register -->
-    <div class="form-container" id="register-form">
-    <h2>Daftar</h2>
-    <form action="#" method="post" id="register-step-1">
-        <div class="form-group">
-            <label for="register-date">Tanggal:</label>
-            <input type="number" id="register-date" name="register-date" min="1" max="31" placeholder="Tanggal" required>
-        </div>
-        <div class="form-group">
-            <label for="register-month">Bulan:</label>
-            <input type="number" id="register-month" name="register-month" min="1" max="12" placeholder="Bulan" required>
-        </div>
-        <div class="form-group">
-            <label for="register-year">Tahun:</label>
-            <input type="number" id="register-year" name="register-year" min="1900" max="2024" placeholder="Tahun" required>
-        </div>
-        <button type="submit" onclick="showNextStep()">Berikutnya</button>
-        <a href="auth">Sudah memiliki akun?</a>
-    </form>
 
-    <form action="#" method="post" id="register-step-2" style="display: none;">
-    <button type="button" onclick="showPreviousStep()">Kembali</button>
-    <br>
-        <div class="form-group">
-            <label for="register-username">Username:</label>
-            <input type="text" id="register-username" name="register-username" required>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1><a href="<?php echo base_url('home'); ?>">Belajar Online</a></h1>
+            <!-- Tombol login/register di header -->
+            <div class="login-register">
+                <button onclick="location.href='<?php echo base_url('auth'); ?>';">Masuk</button>
+                <button onclick="location.href='<?php echo base_url('auth/register'); ?>';">Daftar</button>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="register-email">Email:</label>
-            <input type="email" id="register-email" name="register-email" required>
+    </header>
+
+    <div class="form-container" id="register-form">
+        <h2>Daftar</h2>
+
+        <form action="#" method="post">
+            <br>
+            <div class="form-group">
+                <label for="register-username">Username:</label>
+                <input type="text" id="register-username" name="register-username" required>
+            </div>
+            <div class="form-group">
+                <label for="register-email">Email:</label>
+                <input type="email" id="register-email" name="register-email" required>
+            </div>
+            <div class="form-group">
+                <label for="register-password">Password:</label>
+                <input type="password" id="register-password" name="register-password" required>
+                <i class="password-toggle fas fa-eye-slash" onclick="toggleRegisterPassword()"></i>
+            </div>
+            <button type="submit">Daftar</button>
+
+            <a href="<?php echo base_url('auth'); ?>">Sudah memiliki akun?</a>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Belajar Online</p>
         </div>
-        <div class="form-group">
-            <label for="register-password">Password:</label>
-            <input type="password" id="register-password" name="register-password" required>
-            <i class="password-toggle fas fa-eye-slash" onclick="toggleRegisterPassword()"></i>
-        </div>
-        <button type="submit">Daftar</button>
-        
-        <a href="auth">Sudah memiliki akun?</a>
-    </form>
-</div>
+    </footer>
+
 
     <!-- Tambahkan Font Awesome CDN untuk ikon -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
@@ -161,21 +235,8 @@
             }
         }
     </script>
-    
-    <script>
-    function showNextStep() {
-        const step1 = document.getElementById("register-step-1");
-        const step2 = document.getElementById("register-step-2");
-        step1.style.display = "none";
-        step2.style.display = "block";
-    }
 
-    function showPreviousStep() {
-        const step1 = document.getElementById("register-step-1");
-        const step2 = document.getElementById("register-step-2");
-        step2.style.display = "none";
-        step1.style.display = "block";
-    }
-</script>
+
 </body>
+
 </html>
