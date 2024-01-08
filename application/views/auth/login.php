@@ -84,7 +84,7 @@
         }
 
         footer {
-            margin-top: 100px;
+            margin-top: 149px;
             background-color: #333333;
             color: #ffffff;
             text-align: center;
@@ -173,26 +173,6 @@
             position: relative;
         }
 
-        /* Mengatur posisi tautan "Lanjutkan dengan Google" dan "Lanjutkan dengan Facebook" */
-        .social-login {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .social-login a {
-            display: inline-block;
-            margin-right: 10px;
-            text-decoration: none;
-            padding: 8px 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            color: #333333;
-            transition: background-color 0.3s ease;
-        }
-
-        .social-login a:hover {
-            background-color: #f9f9f9;
-        }
         a {
             display: block;
             text-align: center;
@@ -218,7 +198,7 @@
 
     <!-- Formulir Login -->
     <div class="container">
-        <form id="login-form" action="proses_login.php" method="POST">
+      <form action="<?php echo base_url('auth/aksi_login'); ?>" method="post" id="login-form">
             <h2>Masuk</h2>
             <div class="form-group">
                 <label for="login-email">Email:</label>
@@ -232,18 +212,6 @@
 
             <div class="form-group">
                 <button type="submit">Masuk</button>
-            </div>
-            <!-- Tombol Login dengan Google -->
-            <div class="social-login">
-                <a href="URL_google_auth" class="google-login">
-                    <i class="fab fa-google"></i> Lanjutkan dengan Google
-                </a>
-                <!-- Ganti "URL_google_auth" dengan URL otentikasi Google Anda -->
-
-                <a href="URL_facebook_auth" class="facebook-login">
-                    <i class="fab fa-facebook-f"></i> Lanjutkan dengan Facebook
-                </a>
-                <!-- Ganti "URL_facebook_auth" dengan URL otentikasi Facebook Anda -->
             </div>
             <a href="<?php echo base_url('auth/register'); ?>">Buat Akun</a>
         </form>

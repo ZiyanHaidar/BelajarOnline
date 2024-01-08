@@ -187,19 +187,19 @@
     <div class="form-container" id="register-form">
         <h2>Daftar</h2>
 
-        <form action="#" method="post">
+        <form action="<?php echo base_url('auth/aksi_register'); ?>" method="post">
             <br>
             <div class="form-group">
-                <label for="register-username">Username:</label>
-                <input type="text" id="register-username" name="register-username" required>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
             </div>
             <div class="form-group">
-                <label for="register-email">Email:</label>
-                <input type="email" id="register-email" name="register-email" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
             </div>
             <div class="form-group">
-                <label for="register-password">Password:</label>
-                <input type="password" id="register-password" name="register-password" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
                 <i class="password-toggle fas fa-eye-slash" onclick="toggleRegisterPassword()"></i>
             </div>
             <button type="submit">Daftar</button>
@@ -220,23 +220,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 
     <script>
-        function toggleRegisterPassword() {
-            const passwordField = document.getElementById("register-password");
-            const toggleIcon = document.querySelector(".password-toggle");
+    function toggleRegisterPassword() {
+        const passwordField = document.getElementById("password");
+        const toggleIcon = document.querySelector(".password-toggle");
 
-            if (passwordField.type === "password") {
-                passwordField.type = "text";
-                toggleIcon.classList.remove("fa-eye-slash");
-                toggleIcon.classList.add("fa-eye");
-            } else {
-                passwordField.type = "password";
-                toggleIcon.classList.remove("fa-eye");
-                toggleIcon.classList.add("fa-eye-slash");
-            }
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            toggleIcon.classList.remove("fa-eye-slash");
+            toggleIcon.classList.add("fa-eye");
+        } else {
+            passwordField.type = "password";
+            toggleIcon.classList.remove("fa-eye");
+            toggleIcon.classList.add("fa-eye-slash");
         }
-    </script>
+    }
 
-
+</script>
+    
 </body>
 
 </html>

@@ -13,7 +13,7 @@ class Pelajar extends CI_Controller
 		}
 	}
 	
-//karyawan
+//pelajar
 	public function index()
 	{
         $this->load->view('pelajar/index');
