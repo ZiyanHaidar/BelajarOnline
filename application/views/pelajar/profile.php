@@ -16,7 +16,7 @@
         <div class="relative">
             <a href="#" id="profileDropdownToggle" class="hover:text-gray-300">Profil</a>
             <ul class="absolute hidden text-gray-700 bg-white shadow-lg py-2 mt-1 w-40 rounded-lg right-0 top-full" id="profileDropdownMenu">
-                <li><a href="<?php echo base_url('pelajar/profile'); ?>" class="block px-4 py-2 hover:bg-gray-100">Profil</a></li>
+                <li><a href="<?php echo base_url('pelajar/profile'); ?>" class="hover:text-gray-300">Profil</a></li>
                 <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Pengaturan</a></li>
                 <li><a href="#" onclick="confirmLogout()" class="block px-4 py-2 hover:bg-gray-100">Keluar</a></li>
             </ul>

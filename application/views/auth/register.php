@@ -2,13 +2,12 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Belajar Online</title>
     <!-- Font Awesome CDN link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        /* CSS Anda di sini */
-        body {
+       body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -18,6 +17,16 @@
             width: 80%;
             margin: 0 auto;
             padding: 20px 0;
+        }
+
+        header {
+            background-color: #f9f9f9;
+            color: #333333;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
         }
 
         .login-register {
@@ -41,24 +50,10 @@
             background-color: #555555;
         }
 
-        header {
-            background-color: #f9f9f9;
-            color: #333333;
-            padding: 20px 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            display: flex;
-            /* Menjadikan header sebagai flex container */
-            justify-content: flex-start;
-            /* Menjadikan konten header berada di kiri */
-            align-items: center;
-            /* Memusatkan vertikal konten header */
-        }
-
         h1 {
             margin: 0;
             font-size: 2em;
             display: inline-block;
-            /* Menjadikan teks h1 menjadi inline block */
         }
 
         h1 a {
@@ -70,12 +65,10 @@
             color: #333333;
         }
 
-        /* Hilangkan hero */
         .hero {
             display: none;
         }
 
-        /* Isi CSS Anda di sini */
         .container {
             width: 80%;
             margin: 0 auto;
@@ -83,7 +76,7 @@
         }
 
         footer {
-            margin-top: 100px;
+            margin-top: 149px;
             background-color: #333333;
             color: #ffffff;
             text-align: center;
@@ -100,34 +93,33 @@
             text-decoration: none;
         }
 
-        .form-container {
-            margin: 0 auto;
+        #register-form {
             max-width: 400px;
             width: 100%;
+            margin: 0 auto;
             padding: 20px;
             background-color: #ffffff;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        .form-container h2 {
+        #register-form h2 {
             text-align: center;
             margin-bottom: 20px;
             color: #333333;
         }
 
-        .form-group {
+        #register-form .form-group {
             margin-bottom: 15px;
-            position: relative;
         }
 
-        .form-group label {
+        #register-form .form-group label {
             display: block;
             margin-bottom: 5px;
             color: #333333;
         }
 
-        .form-group input {
+        #register-form .form-group input {
             width: 100%;
             padding: 8px;
             font-size: 16px;
@@ -135,16 +127,7 @@
             border-radius: 5px;
         }
 
-        .password-toggle {
-            position: absolute;
-            top: 70%;
-            right: 10px;
-            transform: translateY(-50%);
-            cursor: pointer;
-        }
-
-
-        button[type="submit"] {
+        #register-form button[type="submit"] {
             display: block;
             width: 100%;
             padding: 10px;
@@ -157,8 +140,16 @@
             transition: background-color 0.3s ease;
         }
 
-        button[type="submit"]:hover {
+        #register-form button[type="submit"]:hover {
             background-color: #333333;
+        }
+
+        .password-toggle {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
         }
 
         a {
@@ -168,6 +159,135 @@
             margin-top: 10px;
             text-decoration: none;
         }
+        @media only screen and (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .login-register {
+                position: relative;
+                margin-top: 20px;
+                text-align: center;
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            .container {
+                width: 100%;
+            }
+
+            .login-register button {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            #register-form {
+                max-width: 100%;
+            }
+
+            #register-form .form-group input {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            header {
+                background-color: #f9f9f9;
+                text-align: center;
+                width: 100%;
+            }
+
+            .login-register button {
+                margin-left: 5px;
+            }
+
+            #register-form {
+                margin-top: 20px;
+            }
+
+            .login-register {
+                position: relative;
+                margin-top: 20px;
+                text-align: center;
+            }
+
+            header {
+                padding: 15px 0;
+            }
+
+            body {
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+                margin: 0;
+            }
+
+            container {
+                flex: 1;
+            }
+
+            footer {
+                margin-top: auto;
+            }
+
+            footer {
+                padding: 10px 0;
+            }
+
+            footer {
+                background-color: #333333;
+                text-align: center;
+                padding: 20px 0;
+                width: 100%;
+            }
+
+            #register-form {
+                max-width: 250px;
+                margin: 0 auto;
+                padding: 10px;
+            }
+
+            #register-form h2 {
+                font-size: 1.2em;
+                margin-bottom: 5px;
+            }
+
+            #register-form .form-group {
+                margin-bottom: 8px;
+            }
+
+            #register-form .form-group label {
+                font-size: 12px;
+            }
+
+            #register-form .form-group input {
+                font-size: 12px;
+                padding: 5px;
+            }
+
+            #register-form button[type="submit"] {
+                padding: 12px;
+            }
+
+            .login-register button {
+                padding: 8px;
+            }
+
+            .password-toggle {
+                top: 50%;
+            }
+        }
+        #register-form .form-group .password-container {
+    position: relative;
+}
+
+#register-form .form-group .password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
     </style>
 </head>
 
@@ -220,23 +340,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 
     <script>
-    function toggleRegisterPassword() {
-        const passwordField = document.getElementById("password");
-        const toggleIcon = document.querySelector(".password-toggle");
+        function toggleRegisterPassword() {
+            const passwordField = document.getElementById("password");
+            const toggleIcon = document.querySelector(".password-toggle");
 
-        if (passwordField.type === "password") {
-            passwordField.type = "text";
-            toggleIcon.classList.remove("fa-eye-slash");
-            toggleIcon.classList.add("fa-eye");
-        } else {
-            passwordField.type = "password";
-            toggleIcon.classList.remove("fa-eye");
-            toggleIcon.classList.add("fa-eye-slash");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                toggleIcon.classList.remove("fa-eye-slash");
+                toggleIcon.classList.add("fa-eye");
+            } else {
+                passwordField.type = "password";
+                toggleIcon.classList.remove("fa-eye");
+                toggleIcon.classList.add("fa-eye-slash");
+            }
         }
-    }
-
-</script>
-    
+    </script>
 </body>
 
 </html>

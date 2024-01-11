@@ -2,12 +2,11 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <title>Belajar Online</title>
     <!-- Font Awesome CDN link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        /* CSS Anda di sini */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -20,18 +19,14 @@
             padding: 20px 0;
         }
 
-        /* Header Styles */
         header {
             background-color: #f9f9f9;
             color: #333333;
             padding: 20px 0;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             display: flex;
-            /* Menjadikan header sebagai flex container */
             justify-content: flex-start;
-            /* Menjadikan konten header berada di kiri */
             align-items: center;
-            /* Memusatkan vertikal konten header */
         }
 
         .login-register {
@@ -59,7 +54,6 @@
             margin: 0;
             font-size: 2em;
             display: inline-block;
-            /* Menjadikan teks h1 menjadi inline block */
         }
 
         h1 a {
@@ -71,12 +65,10 @@
             color: #333333;
         }
 
-        /* Hilangkan hero */
         .hero {
             display: none;
         }
 
-        /* Isi CSS Anda di sini */
         .container {
             width: 80%;
             margin: 0 auto;
@@ -101,12 +93,10 @@
             text-decoration: none;
         }
 
-        /* Formulir Login */
         #login-form {
             max-width: 400px;
             width: 100%;
             margin: 0 auto;
-            /* Membuat form login menjadi di tengah */
             padding: 20px;
             background-color: #ffffff;
             border-radius: 5px;
@@ -137,14 +127,12 @@
             border-radius: 5px;
         }
 
-        /* Mengubah warna tombol masuk pada form */
         #login-form button[type="submit"] {
             display: block;
             width: 100%;
             padding: 10px;
             margin-top: 10px;
             background-color: #000000;
-            /* Mengubah warna tombol menjadi hitam */
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -154,23 +142,14 @@
 
         #login-form button[type="submit"]:hover {
             background-color: #333333;
-            /* Warna tombol saat dihover */
         }
 
         .password-toggle {
             position: absolute;
-            top: 70%;
+            top: 50%;
             right: 10px;
             transform: translateY(-50%);
             cursor: pointer;
-        }
-
-        button[type="submit"]:hover {
-            background-color: #555555;
-        }
-
-        .form-group {
-            position: relative;
         }
 
         a {
@@ -180,6 +159,135 @@
             margin-top: 10px;
             text-decoration: none;
         }
+        @media only screen and (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .login-register {
+                position: relative;
+                margin-top: 20px;
+                text-align: center;
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            .container {
+                width: 100%;
+            }
+
+            .login-register button {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            #login-form {
+                max-width: 100%;
+            }
+
+            #login-form .form-group input {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            header {
+                background-color: #f9f9f9;
+                text-align: center;
+                width: 100%;
+            }
+
+            .login-register button {
+                margin-left: 5px;
+            }
+
+            #login-form {
+                margin-top: 20px;
+            }
+
+            .login-register {
+                position: relative;
+                margin-top: 20px;
+                text-align: center;
+            }
+
+            header {
+                padding: 15px 0;
+            }
+
+            body {
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+                margin: 0;
+            }
+
+            container {
+                flex: 1;
+            }
+
+            footer {
+                margin-top: auto;
+            }
+
+            footer {
+                padding: 10px 0;
+            }
+
+            footer {
+                background-color: #333333;
+                text-align: center;
+                padding: 20px 0;
+                width: 100%;
+            }
+
+            #login-form {
+                max-width: 250px;
+                margin: 0 auto;
+                padding: 10px;
+            }
+
+            #login-form h2 {
+                font-size: 1.2em;
+                margin-bottom: 5px;
+            }
+
+            #login-form .form-group {
+                margin-bottom: 8px;
+            }
+
+            #login-form .form-group label {
+                font-size: 12px;
+            }
+
+            #login-form .form-group input {
+                font-size: 12px;
+                padding: 5px;
+            }
+
+            #login-form button[type="submit"] {
+                padding: 12px;
+            }
+
+            .login-register button {
+                padding: 8px;
+            }
+
+            .password-toggle {
+                top: 50%;
+            }
+        }
+        #login-form .form-group .password-container {
+    position: relative;
+}
+
+#login-form .form-group .password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
     </style>
 </head>
 
@@ -188,7 +296,6 @@
     <header>
         <div class="container">
             <h1><a href="<?php echo base_url('home'); ?>">Belajar Online</a></h1>
-            <!-- Tombol login/register di header -->
             <div class="login-register">
                 <button onclick="location.href='<?php echo base_url('auth'); ?>';">Masuk</button>
                 <button onclick="location.href='<?php echo base_url('auth/register'); ?>';">Daftar</button>
@@ -198,18 +305,19 @@
 
     <!-- Formulir Login -->
     <div class="container">
-      <form action="<?php echo base_url('auth/aksi_login'); ?>" method="post" id="login-form">
+        <form action="<?php echo base_url('auth/aksi_login'); ?>" method="post" id="login-form">
             <h2>Masuk</h2>
             <div class="form-group">
                 <label for="login-email">Email:</label>
                 <input type="email" id="login-email" name="login-email" required>
             </div>
             <div class="form-group">
-                <label for="login-password">Password:</label>
+            <label for="login-password">Password:</label>
+            <div class="password-container"> <!-- Wrap password input and eye icon in a container -->
                 <input type="password" id="login-password" name="login-password" required>
                 <i class="password-toggle fas fa-eye-slash" onclick="togglePassword()"></i>
             </div>
-
+        </div>
             <div class="form-group">
                 <button type="submit">Masuk</button>
             </div>
@@ -223,7 +331,6 @@
             <p>&copy; 2024 Belajar Online</p>
         </div>
     </footer>
-
 
     <!-- Tambahkan Font Awesome CDN untuk ikon -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
@@ -244,8 +351,6 @@
             }
         }
     </script>
-
-
 </body>
 
 </html>

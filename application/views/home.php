@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Belajar Online</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
@@ -143,25 +143,6 @@
       line-height: 1.6;
     }
 
-
-    /* Testimoni Styles */
-    .testimonials {
-      background-color: #f9f9f9;
-      padding: 50px 0;
-    }
-
-    .testimonial {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .testimonial img {
-      border-radius: 50%;
-      width: 100px;
-      height: 100px;
-      margin-bottom: 10px;
-    }
-
     blockquote {
       font-style: italic;
       margin-bottom: 10px;
@@ -227,6 +208,79 @@
       color: #333333;
       /* Ubah warna teks saat link dihover menjadi lebih gelap */
     }
+
+    @media only screen and (max-width: 768px) {
+  body {
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+
+  header {
+    padding: 10px 0; /* Adjust header padding for smaller screens */
+  }
+
+  header h1 {
+    font-size: 1.5em; /* Adjust header font size for smaller screens */
+  }
+
+  nav ul li {
+    display: block;
+    margin: 10px 0; /* Add margin between navigation items for smaller screens */
+  }
+
+  .hero {
+    padding: 80px 0; /* Adjust hero section padding for smaller screens */
+  }
+
+  .hero h2 {
+    font-size: 2em; /* Adjust hero heading font size for smaller screens */
+  }
+
+  .hero p {
+    font-size: 1em; /* Adjust hero paragraph font size for smaller screens */
+  }
+
+  .hero .cta-button {
+    font-size: 0.8em; /* Adjust button font size for smaller screens */
+  }
+
+  .feature-item {
+    flex: 0 0 100%; /* Set width to 100% for smaller screens */
+  }
+
+  .features h3 {
+    font-size: 1.2em; /* Adjust feature section heading font size for smaller screens */
+  }
+
+  .feature-item i {
+    font-size: 1.5em; /* Adjust feature item icon size for smaller screens */
+  }
+
+  .feature-item h4 {
+    font-size: 1.2em; /* Adjust feature item heading font size for smaller screens */
+  }
+
+  .feature-item p {
+    font-size: 0.9em; /* Adjust feature item paragraph font size for smaller screens */
+  }
+
+  footer {
+    padding: 10px 0; /* Adjust footer padding for smaller screens */
+  }
+
+  footer nav ul li {
+    margin-right: 5px; /* Adjust margin between footer navigation items for smaller screens */
+  }
+
+  .login-register {
+    position: static;
+    margin-top: 10px; /* Adjust margin between login-register and header for smaller screens */
+    text-align: center; /* Center align login-register for smaller screens */
+  }
+
+  .login-register button {
+    margin: 5px; /* Add margin between login-register buttons for smaller screens */
+  }
+}
   </style>
 </head>
 
