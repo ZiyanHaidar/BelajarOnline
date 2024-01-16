@@ -2,12 +2,14 @@
 <html lang="en">
 
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Belajar Online</title>
     <!-- Font Awesome CDN link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-       body {
+        body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -20,13 +22,18 @@
         }
 
         header {
-            background-color: #f9f9f9;
             color: #333333;
             padding: 20px 0;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
+        }
+
+        header {
+            background-color: #f9f9f9;
+            /* Warna latar belakang header */
+        }
+
+        header h1 {
+            font-size: 2em;
         }
 
         .login-register {
@@ -159,6 +166,7 @@
             margin-top: 10px;
             text-decoration: none;
         }
+
         @media only screen and (max-width: 768px) {
             header {
                 flex-direction: column;
@@ -277,17 +285,18 @@
                 top: 50%;
             }
         }
-        #register-form .form-group .password-container {
-    position: relative;
-}
 
-#register-form .form-group .password-toggle {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    cursor: pointer;
-}
+        #register-form .password-input-container {
+            position: relative;
+        }
+
+        #register-form .password-toggle {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -309,9 +318,19 @@
 
         <form action="<?php echo base_url('auth/aksi_register'); ?>" method="post">
             <br>
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
+            <div class="row gx-3 mb-3">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="fullname">Nama Lengkap:</label>
+                        <input type="text" id="fullname" name="fullname" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                </div>
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
@@ -319,9 +338,12 @@
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-                <i class="password-toggle fas fa-eye-slash" onclick="toggleRegisterPassword()"></i>
+                <div class="password-input-container">
+                    <input type="password" id="password" name="password" minlength="8" required>
+                    <i class="password-toggle fas fa-eye-slash" onclick="toggleRegisterPassword()"></i>
+                </div>
             </div>
+            <small style="color:red">*Password minimal 8 karakter*</small>
             <button type="submit">Daftar</button>
 
             <a href="<?php echo base_url('auth'); ?>">Sudah memiliki akun?</a>
@@ -355,6 +377,31 @@
             }
         }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <?php if($this->session->flashdata('register_gagal')){ ?>
+        <script>
+        Swal.fire({
+            title: 'Daftar Gagal',
+            text: '<?php echo $this->session->flashdata('register_gagal'); ?>',
+            icon: 'error',
+            showConfirmButton: false,
+            timer: 1500
+        });
+        </script>
+        <?php } ?>
+
+        <?php if($this->session->flashdata('error')){ ?>
+        <script>
+        Swal.fire({
+            title: 'Daftar Gagal',
+            text: '<?php echo $this->session->flashdata('error'); ?>',
+            icon: 'error',
+            showConfirmButton: false,
+            timer: 1500
+        });
+        </script>
+        <?php } ?>
 </body>
 
 </html>

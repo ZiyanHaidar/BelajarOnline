@@ -6,6 +6,7 @@
     <title>Belajar Online</title>
     <!-- Font Awesome CDN link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,13 +21,18 @@
         }
 
         header {
-            background-color: #f9f9f9;
             color: #333333;
             padding: 20px 0;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
+        }
+
+        header {
+            background-color: #f9f9f9;
+            /* Warna latar belakang header */
+        }
+
+        header h1 {
+            font-size: 2em;
         }
 
         .login-register {
@@ -159,6 +165,7 @@
             margin-top: 10px;
             text-decoration: none;
         }
+
         @media only screen and (max-width: 768px) {
             header {
                 flex-direction: column;
@@ -277,17 +284,18 @@
                 top: 50%;
             }
         }
-        #login-form .form-group .password-container {
-    position: relative;
-}
 
-#login-form .form-group .password-toggle {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    cursor: pointer;
-}
+        #login-form .password-input-container {
+            position: relative;
+        }
+
+        #login-form .password-toggle {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -295,7 +303,8 @@
     <!-- Header -->
     <header>
         <div class="container">
-            <h1><a href="<?php echo base_url('home'); ?>">Belajar Online</a></h1>
+            <h1><a href="home">Belajar Online</a></h1>
+            <!-- Tambahkan tombol login dan register di kanan atas -->
             <div class="login-register">
                 <button onclick="location.href='<?php echo base_url('auth'); ?>';">Masuk</button>
                 <button onclick="location.href='<?php echo base_url('auth/register'); ?>';">Daftar</button>
@@ -309,20 +318,21 @@
             <h2>Masuk</h2>
             <div class="form-group">
                 <label for="login-email">Email:</label>
-                <input type="email" id="login-email" name="login-email" required>
+                <input type="email" id="email" name="email" required>
             </div>
             <div class="form-group">
-            <label for="login-password">Password:</label>
-            <div class="password-container"> <!-- Wrap password input and eye icon in a container -->
-                <input type="password" id="login-password" name="login-password" required>
-                <i class="password-toggle fas fa-eye-slash" onclick="togglePassword()"></i>
+                <label for="password">Password:</label>
+                <div class="password-input-container">
+                    <input type="password" id="password" name="password" minlength="8" required>
+                    <i class="password-toggle fas fa-eye-slash" onclick="togglePassword()"></i>
+                </div>
             </div>
-        </div>
-            <div class="form-group">
-                <button type="submit">Masuk</button>
-            </div>
+            <small style="color:red">*Password minimal 8 karakter*</small>
+            <button type="submit">Daftar</button>
             <a href="<?php echo base_url('auth/register'); ?>">Buat Akun</a>
-        </form>
+    </div>
+  
+    </form>
     </div>
 
     <!-- Footer -->
@@ -334,6 +344,7 @@
 
     <!-- Tambahkan Font Awesome CDN untuk ikon -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
         function togglePassword() {

@@ -34,7 +34,7 @@ class Auth extends CI_Controller {
    if ($this->session->userdata('role') == 'admin') {
     redirect(base_url()."admin");
    } elseif($this->session->userdata('role') == 'pelajar'){
-    redirect(base_url()."pelajar") ;
+    redirect(base_url("pelajar")) ;
    }
  else {
     redirect(base_url()."home");
@@ -49,9 +49,9 @@ class Auth extends CI_Controller {
  }
  public function aksi_register()
  {
-     $email = $this->input->post('email', true);
-     $username = $this->input->post('username', true);
- 
+    $email = $this->input->post('email', true);
+    $username = $this->input->post('username', true);
+    $fullname = $this->input->post('fullname', true);
      // Cek apakah email sudah digunakan
      $this->db->where('email', $email);
      $email_exists = $this->db->get('user')->num_rows();
@@ -76,7 +76,7 @@ class Auth extends CI_Controller {
          $role = 'pelajar';
          // Jika ada gambar diunggah
          if ($_FILES['image']['name']) {
-             $config['upload_path'] = './path_to_upload_directory/'; // Ganti dengan lokasi direktori upload Anda
+             $config['upload_path'] = './images/user/'; // Ganti dengan lokasi direktori upload Anda
              $config['allowed_types'] = 'gif|jpg|png';
              $config['max_size'] = 2048; // Ukuran file maksimum (dalam KB)
  
@@ -93,12 +93,13 @@ class Auth extends CI_Controller {
          }
  
          $data = [
-             'email' => $email,
-             'username' => $username,
-             'password' => $password,
-             'role' => $role,
-             'image' => $image // Ubah ini sesuai dengan variabel gambar yang Anda gunakan
-         ];
+            'email' => $email,
+            'username' => $username,
+            'fullname' => $fullname, // Tambahkan nama lengkap ke dalam data
+            'password' => $password,
+            'role' => $role,
+            'image' => $image
+        ];
  
          $table = 'user';
  
@@ -115,7 +116,7 @@ class Auth extends CI_Controller {
             ]);
             
             // Set session untuk pesan registrasi berhasil
-            $this->session->set_flashdata('register_berhasil', 'Registrasi berhasil. Silakan login.');
+            $this->session->set_flashdata('succes', 'Daftar berhasil. Silakan masuk.');
             redirect(base_url() . "auth");
         } else {
             // Registrasi gagal

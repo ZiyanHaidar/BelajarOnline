@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Belajar Online</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -62,7 +63,6 @@
     }
 
     .hero {
-      background-image: url('hero-background.jpg');
       background-size: cover;
       color: #ffffff;
       /* Warna teks awal - putih */
@@ -289,7 +289,7 @@
   <!-- Header -->
   <header>
     <div class="container">
-      <h1><a href="home">Belajar Online</a></h1>
+      <h1><a href="<?php echo base_url('home'); ?>">Belajar Online</a></h1>
       <!-- Tambahkan tombol login dan register di kanan atas -->
       <div class="login-register">
         <button onclick="location.href='<?php echo base_url('auth'); ?>';">Masuk</button>

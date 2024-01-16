@@ -18,7 +18,7 @@ class M_model extends CI_Model{
     {
         $this->db->select('password');
         $this->db->where('id', $id);
-        $query = $this->db->get('users');
+        $query = $this->db->get('user');
 
         if ($query->num_rows() == 1) {
             $row = $query->row();
@@ -31,7 +31,7 @@ class M_model extends CI_Model{
     {
         $this->db->select('password');
         $this->db->where('id', $id);
-        $query = $this->db->get('users');
+        $query = $this->db->get('user');
 
         if ($query->num_rows() == 1) {
             $row = $query->row();
@@ -56,9 +56,68 @@ class M_model extends CI_Model{
     }
 
     public function register_user($data) {
-        // Masukkan data ke dalam tabel 'users' dan kembalikan hasilnya
-            return $this->db->insert('users', $data);
+        // Masukkan data ke dalam tabel 'user' dan kembalikan hasilnya
+            return $this->db->insert('user', $data);
+    }
+    public function update_data($table, $data, $where)
+    {
+        $this->db->update($table, $data, $where);
+        return $this->db->affected_rows();
     }
 
+    public function image_akun()
+    {
+        $id = $this->session->akundata('id');
+        $this->db->select('image');
+        $this->db->from('user');
+        $this->db->where('id');
+        $query = $this->db->get();
 
+        if ($query->num_rows() > 0) {
+            $result = $query->row();
+            return $result->image;
+        } else {
+            return false;
+        }
+    }
+    public function get_pelajar_image_by_id($id)
+    {
+        $this->db->select('image');
+        $this->db->from('user');
+        $this->db->where('id', $id);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            $result = $query->row();
+            return $result->image;
+        } else {
+            return false;
+        }
+    }
+    public function update_image($akun_id, $new_image)
+    {
+        $data = array(
+            'image' => $new_image
+        );
+
+        $this->db->where('id', $akun_id); // Sesuaikan dengan kolom dan nama tabel yang sesuai
+        $this->db->update('user', $data); // Sesuaikan dengan nama tabel Anda
+
+        return $this->db->affected_rows(); // Mengembalikan jumlah baris yang diupdate
+    }
+
+    public function get_current_image($akun_id)
+    {
+        $this->db->select('image');
+        $this->db->from('user'); // Gantilah 'akun_table' dengan nama tabel Anda
+        $this->db->where('id', $akun_id);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            $row = $query->row();
+            return $row->image;
+        }
+
+        return null; // Kembalikan null jika data tidak ditemukan
+    }
 }
