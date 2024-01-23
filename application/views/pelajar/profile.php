@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Dashboard Belajar Online</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
   <link rel="icon" href="path/to/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
@@ -23,10 +24,43 @@
     }
 
     main {
-      background-color: #f4f4f4;
       padding: 2rem;
     }
+    h2 {
+    color: #4a5568; /* Dark Grayish Blue */
+  }
 
+  p {
+    color: #718096; /* Gray */
+    line-height: 1.5;
+  }
+
+  h3 {
+    color: #2d3748; /* Dark Blue-Gray */
+  }
+
+  ol,
+  ul {
+    color: #4a5568; /* Dark Grayish Blue */
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  pre {
+    background-color: #edf2f7; /* Light Gray-Blue */
+    padding: 1rem;
+    border-radius: 4px;
+    overflow-x: auto;
+  }
+
+  a {
+    color: #4299e1; /* Blue */
+    transition: color 0.3s ease-in-out;
+  }
+
+  a:hover {
+    color: #2b6cb0; /* Darker Blue on Hover */
+  }
     h2 {
       color: #333;
     }
@@ -48,70 +82,6 @@
 
     .hover-bg-gray-100:hover {
       background-color: #f0f0f0;
-    }
-
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-
-    .tab-content {
-      display: none;
-    }
-
-    .tab-content.active {
-      display: block;
-    }
-
-    /* New styles for circular profile picture */
-    .profile-picture-container {
-      width: 120px;
-      height: 120px;
-      overflow: hidden;
-      margin: 0 auto;
-      border-radius: 50%;
-      position: relative;
-      background: url('path/to/background-image.jpg');
-      /* Add the path to your background image */
-      background-size: cover;
-      background-position: center;
-    }
-
-    .profile-picture {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border: 4px solid #fff;
-      border-radius: 50%;
-    }
-
-    .edit-button {
-      background-color: #3498db;
-      color: #fff;
-      border: none;
-      padding: 8px 15px;
-      /* Adjusted padding for better appearance */
-      cursor: pointer;
-      border-radius: 5px;
-    }
-
-    .profile-options {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      color: white;
-      display: none;
-      background-color: rgba(0, 0, 0, 0.8);
-    }
-
-    .profile-picture-container:hover .profile-options {
-      display: block;
     }
 
     .profile-details {
@@ -137,49 +107,22 @@
       font-size: 12px;
     }
 
-    .card {
-
-      text-align: center;
-      border: 1px solid #ccc;
-      background-color: #f9f9f9;
-      border-radius: 5px;
-
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
     }
 
-    /* CSS untuk gambar profil dan tombol edit */
-    .profile-image {
-      position: relative;
-      display: inline-block;
+    .hover-bg-gray-100:hover {
+      background-color: #f0f0f0;
     }
 
-    .profile-image img {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border: 2px solid #6699ff;
-      border-radius: 50%;
-      margin-bottom: 10px;
-    }
-
-    .edit-button {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      background-color: #6699ff;
-      color: #fff;
-      border: none;
-      border-radius: 50%;
-      padding: 5px 10px;
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
       cursor: pointer;
-      font-size: 16px;
-    }
-
-    /* CSS untuk judul card (username) dan informasi tambahan */
-    .card h5,
-    .card p {
-      margin: 0;
-      font-size: 1em;
-      color: #555;
     }
 
     .profile-form {
@@ -256,37 +199,8 @@
         max-width: 100%;
       }
 
-      .form-group label {
-        font-size: 14px;
-      }
-
-      .form-group input {
-        padding: 8px;
-      }
-
-      .form-group button {
-        font-size: 14px;
-      }
-
-      /* Opsi tambahan: menyesuaikan teks tombol */
-      button[type="submit"] span {
-        margin-left: 3px;
-      }
     }
 
-    button[type="submit"]:hover {
-      background-color: #343a40;
-    }
-
-    button[type="submit"]:focus {
-      outline: none;
-    }
-
-    /* Opsi tambahan: menyesuaikan teks tombol */
-    button[type="submit"] span {
-      vertical-align: middle;
-      margin-left: 5px;
-    }
 
     /* Style untuk modal */
     .modal {
@@ -347,25 +261,58 @@
       margin-right: 5px;
     }
 
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
     /* Tambahkan CSS untuk modal */
     .modalimg {
       display: none;
       position: fixed;
       z-index: 1;
-      left: 20%;
+      left: 0;
       top: 0;
       width: 100%;
       height: 100%;
       overflow: auto;
-      background-color: rgb(0, 0, 0);
       background-color: rgba(0, 0, 0, 0.9);
-      padding-top: 60px;
     }
 
     .modalimg-content {
       margin: 5% auto;
-      display: block;
-      max-width: 700px;
+      max-width: 80%;
+      max-height: 80%;
     }
 
     .closes {
@@ -375,6 +322,7 @@
       position: absolute;
       top: 15px;
       right: 35px;
+      cursor: pointer;
     }
 
     .modal-image {
@@ -384,8 +332,33 @@
       margin: auto;
     }
 
+    /* Optionally, you can add styling for overlay click to close the modal */
+    .modalimg:hover {
+      cursor: pointer;
+    }
+
     .profile-image img {
       cursor: pointer;
+      border: 2px solid #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      height: 100px;
+      /* Set the desired height */
+      width: 100px;
+      /* Set the desired width */
+      transition: transform 0.3s ease-in-out;
+    }
+
+    /* Optionally, you can add a hover effect to the smaller image */
+    .profile-image img:hover {
+      transform: scale(1.1);
+    }
+
+    .profile-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.3s ease-in-out;
     }
   </style>
 </head>
@@ -394,21 +367,28 @@
   <?php foreach ($akun as $user): ?>
     <header class="text-black py-4">
       <div class="container mx-auto flex justify-between items-center px-4">
-        <a href="<?php echo base_url('pelajar'); ?>">
-          <div class="text-xl font-bold">BelajarOnline</div>
-        </a>
+        <a href="<?php echo base_url('pelajar'); ?>" class="text-xl font-bold">BelajarOnline</a>
         <ul class="flex py-4">
-          <li class="px-4 py-2 hover:bg-gray-300 relative">
-            <a href="#" class="font-semibold" id="catalogDropdownToggle">Lihat Katalog Kursus</a>
+          <li class="hover:bg-gray-300 relative mb-4">
+            <button id="subjectDropdownToggle"
+              class=" text-black font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline-blue">
+              Lihat Mata Pelajaran
+            </button>
             <ul class="absolute hidden text-gray-700 bg-white shadow-lg py-2 mt-1 w-100 rounded-lg"
-              id="catalogDropdownMenu">
-              <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Pilih Kursus</a></li>
+              id="subjectDropdownMenu">
+              <li><a href="#" class="block px-4 py-2 hover:bg-gray-100" onclick="openModal()">Pilih Mata Pelajaran</a>
+              </li>
               <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Tonton Video Pembelajaran</a></li>
               <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Kerjakan Kuis</a></li>
             </ul>
           </li>
-          <li class="px-4 py-2 hover:bg-gray-300"><a href="#" class="font-semibold">Diskusi</a></li>
-          <li class="px-4 py-2 hover:bg-gray-300"><a href="#" class="font-semibold">Laporan Kemajuan</a></li>
+
+          <li class="px-4 py-2 hover:bg-gray-300"><a href="<?php echo base_url('pelajar/diskusi'); ?>"
+              class=" text-black font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline-blue">Diskusi</a>
+          </li>
+          <li class="px-4 py-2 hover-bg-gray-300"><a href="<?php echo base_url('pelajar/laporan'); ?>"
+              class=" text-black font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline-blue">Laporan
+              Kemajuan</a></li>
         </ul>
         <div class="relative">
           <div class="profile-details" id="profileDropdownToggle">
@@ -420,12 +400,9 @@
             <div class="profile-details" id="profileDropdownToggle">
               <div class="profile-content ml-2">
                 <div class="name-job">
-                  <div class="profile_name">
-                    <?php echo $this->session->userdata('username'); ?>
-                  </div>
                   <div class="job">
                     <marquee scrolldelay="200">
-                      <?php echo $_SESSION['email']; ?>
+                      <?= $user->email ?>
                     </marquee>
                   </div>
                 </div>
@@ -439,101 +416,175 @@
             </div>
           </div>
         </div>
+      </div>
     </header>
 
-    <main class="no-scrollbar">
-      <div class="all font-web bg-slate-100 min-h-screen">
-        <div class="bg-[url('http://localhost/ftp/uploads/awan.png')] h-[80px] bg-no-repeat bg-cover">
-        </div>
-        <div class="px-10 -mt-[40px]">
-          <div class="profile-picture-container">
-            <div class="profile-image">
-              <img src="<?php echo base_url('images/user/' . $user->image) ?>" alt="profileImg" class="rounded-circle">
-
-              <input name="id" type="hidden" value="<?php echo $user->id ?>">
-              <button for="image_upload" class="edit-button" data-bs-toggle="modal" data-bs-target="#editImageModal"><i
-                  class="fa-solid fa-pen"></i></button>
-              <input type="file" id="image" name="image" accept="image/*" style="display:none;">
-            </div>
-            <h5 class="card-title">
-              <?php echo $this->session->userdata('username'); ?>
-            </h5>
-            <p class="card-text">
-              <?php echo $this->session->userdata('email'); ?>
-            </p>
+    <main class="container mx-auto my-10 rounded-sm sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-full p-6 shadow-md">
+      <div class="flex flex-col items-center">
+        <div class="profile-picture-container">
+          <div class="profile-image">
+            <img
+              src="<?php echo $user->image ? base_url('images/user/' . $user->image) : base_url('images/user/User.png'); ?>"
+              alt="profileImg" class="rounded-circle">
+            <input name="id" type="hidden" value="<?php echo $user->id ?>">
+            <button for="image_upload" class="edit-button" data-bs-toggle="modal" data-bs-target="#editImageModal">
+              <i class="fa-solid fa-pen"></i>
+            </button>
+            <input type="file" id="image" name="image" accept="image/*" style="display:none;">
           </div>
         </div>
-        <ul class="grid grid-flow-col text-center border-b border-gray-200 text-gray-500 mt-12">
 
-          <li>
-            <a href="#page4"
-              class="flex justify-center border-b-4 border-transparent hover:text-indigo-600 hover:border-indigo-600 py-4">Edit
-              Profil</a>
-          </li>
-        </ul>
+        <h2 class="font-bold text-xl my-4 text-center">
+          <?= $user->fullname ?>
+          <br>
+          <?= $user->username ?>
+          <br>
+          <?= $user->email ?>
+          <br>
+          <?= $user->gender ?>
+        </h2>
 
-        <div id="page4" class="tab-content">
-          <form action="<?php echo base_url('pelajar/edit_profile'); ?>" enctype="multipart/form-data" method="post"
-            class="mt-8 max-w-md mx-auto">
-            <div class="mb-3">
-              <label for="email" class="block text-sm font-medium text-gray-600">Email</label>
-              <input id="email" type="email" placeholder="Masukan email" value="<?php echo $user->email ?>" name="email"
-                class="mt-1 p-2 border rounded-md w-full">
-            </div>
-            <div class="mb-3">
-              <label for="username" class="block text-sm font-medium text-gray-600">Username</label>
-              <input id="username" type="username" placeholder="Masukan username" value="<?php echo $user->username ?>"
-                name="email" class="mt-1 p-2 border rounded-md w-full">
-            </div>
-            <div class="mb-3">
-              <label for="fullname" class="block text-sm font-medium text-gray-600">Nama Lengkap</label>
-              <input id="fullname" type="fullname" placeholder="Masukan nama lengkap"
-                value="<?php echo $user->fullname ?>" name="email" class="mt-1 p-2 border rounded-md w-full">
-            </div>
-
-            <div class="col-span-2 sm:col-span-1">
-              <label for="password_lama" class="block text-sm font-medium text-gray-600">Password Lama</label>
-              <div class="relative">
-                <input id="password_lama" type="password" placeholder="Masukan Password Lama" name="password_lama"
-                  class="mt-1 p-2 border rounded-md w-full">
-                <span class="absolute inset-y-0 right-0 pr-3 flex items-center">
-                  <i id="icon-password_lama" class="fas fa-eye-slash text-gray-500 cursor-pointer"
-                    onclick="togglePassword('password_lama', 'icon-password_lama')"></i>
-                </span>
-              </div>
-              <div class="grid grid-cols-2 gap-4 mb-3">
-                <div class="col-md-6">
-                  <label class="small mb-1" for="password_baru">Password Baru</label>
-                  <div class="input-group">
-                    <input class="form-control" id="password_baru" type="password" placeholder="Password baru"
-                      name="password_baru">
-                    <span class="input-group-text" onclick="togglePassword('password_baru', 'icon-password_baru')">
-                      <i id="icon-password_baru" class="fas fa-eye-slash"></i>
-                    </span>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <label class="small mb-1" for="konfirmasi_password">Konfirmasi
-                    Password</label>
-                  <div class="input-group">
-                    <input class="form-control" id="konfirmasi_password" type="password" placeholder="Konfirmasi password"
-                      name="konfirmasi_password">
-                    <span class="input-group-text"
-                      onclick="togglePassword('konfirmasi_password', 'icon-konfirmasi_password')">
-                      <i id="icon-konfirmasi_password" class="fas fa-eye-slash"></i>
-                    </span>
-                  </div>
-                </div>
-
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Simpan
-                  Perubahan</button>
-          </form>
+        <div class="mb-4 text-center text-green-500">
+          <?= $this->session->flashdata('sukses'); ?>
         </div>
+        <div class="mb-4 text-center text-red-500">
+          <?= $this->session->flashdata('message'); ?>
+        </div>
+
+        <!-- Profile Form Section -->
+        <form method="post" action="<?= base_url('pelajar/aksi_ubah_profile'); ?>" enctype="multipart/form-data"
+          class="w-full max-w-lg mx-auto">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+            <!-- Username Input -->
+            <div>
+              <label for="username" class="block text-sm font-medium text-gray-600">Username</label>
+              <input type="text" id="username" name="username"
+                class="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+                value="<?= $user->username; ?>">
+            </div>
+            <!-- Full Name Input -->
+            <div>
+              <label for="fullname" class="block text-sm font-medium text-gray-600">Full Name</label>
+              <input type="text" class="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+                id="fullname" name="fullname" value="<?= $user->fullname; ?>">
+            </div>
+          </div>
+
+          <!-- Email and Gender Input -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+            <div class="mb-4">
+              <label for="email" class="block text-sm font-medium text-gray-600">Email</label>
+              <input type="text" id="email" name="email"
+                class="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+                value="<?= $user->email; ?>">
+            </div>
+            <div class="mb-4">
+              <label for="gender" class="block text-sm font-medium text-gray-600">Gender</label>
+              <select id="gender" name="gender"
+                class="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500">
+                <option value="Laki-Laki" <?= ($user->gender === 'Laki-Laki') ? 'selected' : ''; ?>>Laki-Laki</option>
+                <option value="Perempuan" <?= ($user->gender === 'Perempuan') ? 'selected' : ''; ?>>Perempuan</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="mb-4">
+            <div class="flex justify-center mt-6">
+              <button type="button"
+                class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline-blue"
+                onclick="ubahProfile()">Ubah Profile</button>
+            </div>
+          </div>
+        </form>
+
+        <!-- Password Form Section -->
+        <form method="post" action="<?= base_url('user/aksi_ubah_password'); ?>" class="mt-6 w-full max-w-lg mx-auto"
+          id="ubahPasswordForm">
+
+          <!-- Password Inputs -->
+          <div class="mb-4 relative">
+            <label for="password_lama" class="block text-sm font-medium text-gray-600">Password Lama</label>
+            <div class="relative">
+              <input type="password" class="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+                id="password_lama" name="password_lama">
+              <button class="btn btn-outline-secondary absolute top-7 transform -translate-y-1/2 right-2" type="button"
+                id="togglePasswordLama" onclick="togglePassword('password_lama', 'togglePasswordLama')">
+                <i class="fas fa-eye-slash"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="mb-4 relative">
+            <label for="password_baru" class="block text-sm font-medium text-gray-600">Password Baru</label>
+            <div class="relative">
+              <input type="password" class="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+                id="password_baru" name="password_baru">
+              <button class="btn btn-outline-secondary absolute top-7 transform -translate-y-1/2 right-2" type="button"
+                id="togglePasswordBaru" onclick="togglePassword('password_baru', 'togglePasswordBaru')">
+                <i class="fas fa-eye-slash"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="mb-4 relative">
+            <label for="konfirmasi_password" class="block text-sm font-medium text-gray-600">Konfirmasi Password</label>
+            <div class="relative">
+              <input type="password" class="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+                id="konfirmasi_password" name="konfirmasi_password">
+              <button class="btn btn-outline-secondary absolute top-7 transform -translate-y-1/2 right-2" type="button"
+                id="toggleKonfirmasiPassword" onclick="togglePassword('konfirmasi_password', 'toggleKonfirmasiPassword')">
+                <i class="fas fa-eye-slash"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="flex justify-center mt-6">
+            <button type="button"
+              class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline-blue"
+              onclick="confirmPasswordChange()">Ubah Password</button>
+
+          </div>
+        </form>
+
       </div>
-    <?php endforeach ?>
-    </div>
-    </div>
+    <?php endforeach; ?>
   </main>
+  <div class="modal" id="imageModal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h2>Ganti Foto Profil</h2>
+
+      <!-- Existing form for uploading a new image -->
+      <form action="<?php echo base_url('pelajar/edit_image'); ?>" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="<?php echo $user->id; ?>">
+        <label for="image">Pilih gambar:</label>
+        <input type="file" id="image" name="image" accept="image/*">
+        <button type="submit">Simpan</button>
+      </form>
+
+      <!-- Add a new form for deleting the current image -->
+      <form action="<?php echo base_url('pelajar/delete_image'); ?>" method="post">
+        <input type="hidden" name="id" value="<?php echo $user->id; ?>">
+        <button type="submit" style="background-color: red; color: white;">Hapus Foto</button>
+      </form>
+    </div>
+  </div>
+  </div>
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>Pilih Mata Pelajaran</h2>
+      <ul>
+        <li><a href="<?php echo base_url('pelajar/matematika'); ?>">1. <br> Matematika</a></li>
+        <li><a href="<?php echo base_url('pelajar/inggris'); ?>">2. <br>Bahasa Inggris</a></li>
+        <li><a href="<?php echo base_url('pelajar/sains'); ?>">3. <br> Sains</a></li>
+        <li><a href="<?php echo base_url('pelajar/sejarah'); ?>">4. <br> Sejarah</a></li>
+        <!-- Tambahkan mata pelajaran lainnya -->
+      </ul>
+    </div>
+  </div>
   <div class="modal" id="imageModal">
     <div class="modal-content">
       <span class="close" id="closeModal">&times;</span>
@@ -543,40 +594,19 @@
         <input type="file" id="image" name="image" accept="image/*">
         <button type="submit">Simpan</button>
       </form>
+
+      <!-- Move the "Hapus Foto" button outside the form and style it to be on the right -->
+      <form action="<?php echo base_url('pelajar/delete_image'); ?>" method="post"
+        style="display: inline-block; float: right;">
+        <input type="hidden" name="id" value="<?php echo $user->id; ?>">
+        <button type="submit" style="background-color: red; color: white;">Hapus Foto</button>
+      </form>
     </div>
   </div>
-
-  <!-- Modal Image-->
-  <div class="modalimg" id="imageModall">
-    <div class="modal-content">
-      <span class="closes" id="closeModall">&times;</span>
-      <img src="<?php echo base_url('images/user/' . $user->image) ?>" alt="profileImg" class="modal-image">
-    </div>
   </div>
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      // Set the default active tab to "Profil Saya" when the document is ready
-      $('#page4').addClass('active');
-      $('a[href="#page4"]').addClass('active');
+  </div>
 
-      // Handle click events on the navigation links
-      $(".grid a").on("click", function (event) {
-        event.preventDefault();
-
-        // Remove 'active' class from all tabs and links
-        $(".grid a").removeClass("active");
-        $(".tab-content").removeClass("active");
-
-        // Add 'active' class to the clicked tab and link
-        $(this).addClass("active");
-
-        // Get the corresponding tab ID and show the content
-        var tabId = $(this).attr("href").substring(1);
-        $("#" + tabId).addClass("active");
-      });
-    });
-  </script>
+  </section>
   <script>
     $(document).ready(function () {
       // Ketika input file berubah
@@ -600,107 +630,9 @@
         }
       });
     });
-
-
-    function togglePassword(inputId, iconId) {
-      var x = document.getElementById(inputId);
-      var icon = document.getElementById(iconId);
-
-      if (x.type === "password") {
-        x.type = "text";
-        icon.classList.remove("fa-eye-slash");
-        icon.classList.add("fa-eye");
-      } else {
-        x.type = "password";
-        icon.classList.remove("fa-eye");
-        icon.classList.add("fa-eye-slash");
-      }
-    }
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 
-  <?php if ($this->session->flashdata('kesalahan_password')) { ?>
-    <script>
-      Swal.fire({
-        title: "Error!",
-        text: "<?php echo $this->session->flashdata('kesalahan_password'); ?>",
-        icon: "warning",
-        showConfirmButton: false,
-        timer: 1500
-      });
-    </script>
-  <?php } ?>
-
-  <?php if ($this->session->flashdata('gagal_update')) { ?>
-    <script>
-      Swal.fire({
-        title: "Error!",
-        text: "<?php echo $this->session->flashdata('gagal_update'); ?>",
-        icon: "error",
-        showConfirmButton: false,
-        timer: 1500
-      });
-    </script>
-  <?php } ?>
-
-  <?php if ($this->session->flashdata('error_profile')) { ?>
-    <script>
-      Swal.fire({
-        title: "Error!",
-        text: "<?php echo $this->session->flashdata('error_profile'); ?>",
-        icon: "error",
-        showConfirmButton: false,
-        timer: 1500
-      });
-    </script>
-  <?php } ?>
-
-  <?php if ($this->session->flashdata('kesalahan_password_lama')) { ?>
-    <script>
-      Swal.fire({
-        title: "Error!",
-        text: "<?php echo $this->session->flashdata('kesalahan_password_lama'); ?>",
-        icon: "error",
-        showConfirmButton: false,
-        timer: 1500
-      });
-    </script>
-  <?php } ?>
-
-  <?php if ($this->session->flashdata('berhasil_ubah_foto')) { ?>
-    <script>
-      Swal.fire({
-        title: "Berhasil",
-        text: "<?php echo $this->session->flashdata('berhasil_ubah_foto'); ?>",
-        icon: "success",
-        showConfirmButton: false,
-        timer: 1500
-      });
-    </script>
-  <?php } ?>
-
-  <?php if ($this->session->flashdata('ubah_password')) { ?>
-    <script>
-      Swal.fire({
-        title: "Success!",
-        text: "<?php echo $this->session->flashdata('ubah_password'); ?>",
-        icon: "success",
-        showConfirmButton: false,
-        timer: 1500
-      });
-    </script>
-  <?php } ?>
-
-  <?php if ($this->session->flashdata('update_user')) { ?>
-    <script>
-      Swal.fire({
-        title: "Success!",
-        text: "<?php echo $this->session->flashdata('update_user'); ?>",
-        icon: "success",
-        showConfirmButton: false,
-        timer: 1500
-      });
-    </script>
-  <?php } ?>
   <script>
     // Membuka modal saat tombol edit diklik
     document.querySelector('.edit-button').addEventListener('click', () => {
@@ -718,41 +650,131 @@
         document.querySelector('.modal').style.display = 'none';
       }
     });
-  </script>
-  <script>
-    // Script untuk membuka modal ketika gambar diklik
-    document.querySelectorAll('.trigger-modall').forEach(item => {
-      item.addEventListener('click', event => {
-        document.getElementById('imageModall').style.display = "block";
-      });
-    });
 
-    // Script untuk menutup modal
-    document.getElementById('closeModall').addEventListener('click', function () {
-      document.getElementById('imageModall').style.display = "none";
-    });
+    // Reload the page after successful deletion (you can customize this)
+    function deleteProfileImage() {
+      Swal.fire({
+        title: 'Berhasil',
+        text: 'Foto profil berhasil dihapus',
+        icon: 'success',
+        showConfirmButton: false,
+        timer: 1500
+      });
+
+      // Close the delete modal
+      document.querySelector('.modal').style.display = 'none';
+
+      // Reload the page
+      location.reload();
+    }
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-  <!-- LOGOUT -->
   <script>
-    function confirmLogout() {
+    function confirmPasswordChange() {
       Swal.fire({
-        title: 'Apakah anda ingin Keluar?',
+        title: 'Konfirmasi',
+        text: 'Apakah Anda yakin ingin mengubah password?',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Ya',
-        cancelButtonText: 'Batal'
+        confirmButtonText: "Ubah",
+        cancelButtonText: "Batal"
       }).then((result) => {
         if (result.isConfirmed) {
-          window.location.href = "<?php echo base_url('home') ?>";
+          document.getElementById('ubahPasswordForm').submit();
         }
       });
+    }
+
+    function navigateTo(url) {
+      window.location.href = url;
+    }
+
+    function togglePassword(inputId, toggleId) {
+      var passwordInput = document.getElementById(inputId);
+      var toggleButton = document.getElementById(toggleId);
+
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        toggleButton.innerHTML = '<i class="fas fa-eye"></i>';
+      } else {
+        passwordInput.type = "password";
+        toggleButton.innerHTML = '<i class="fas fa-eye-slash"></i>';
+      }
+    }
+
+    function ubahProfile() {
+      Swal.fire({
+        title: "Ubah Profile",
+        text: "Anda yakin ingin mengubah profile?",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: "Ubah",
+        cancelButtonText: "Batal"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: "Berhasil",
+            text: "Profil berhasil diubah",
+            icon: "success",
+            timer: 2000,
+            timerProgressBar: true,
+            showConfirmButton: false
+          });
+          setTimeout(function () {
+            document.querySelector("form").submit();
+          }, 2000);
+        }
+      });
+    }
+
+  </script>
+  <script>
+    function toggleModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const profileDropdownToggle = document.getElementById('profileDropdownToggle');
+      const profileDropdownMenu = document.getElementById('profileDropdownMenu');
+
+      profileDropdownToggle.addEventListener('click', function (e) {
+        e.stopPropagation();
+        profileDropdownMenu.classList.toggle('hidden');
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!profileDropdownToggle.contains(e.target) && !profileDropdownMenu.contains(e.target)) {
+          profileDropdownMenu.classList.add('hidden');
+        }
+      });
+    });
+  </script>
+  <?php if ($this->session->flashdata('berhasil_ubah_foto')) { ?>
+    <script>
+      Swal.fire({
+        title: "Berhasil",
+        text: "<?php echo $this->session->flashdata('berhasil_ubah_foto'); ?>",
+        icon: "success",
+        showConfirmButton: false,
+        timer: 1500
+      });
+    </script>
+  <?php } ?>
+  <script>
+    function openModal() {
+      const modal = document.getElementById('myModal');
+      modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('myModal');
+      modal.style.display = 'none';
     }
   </script>
   <script>
@@ -791,6 +813,43 @@
         const username = '<?php echo $this->session->userdata('username'); ?>';
         const capitalizedUsername = username.charAt(0).toUpperCase() + username.slice(1);
         profileNameElement.textContent = capitalizedUsername;
+      }
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <!-- LOGOUT -->
+  <script>
+    function confirmLogout() {
+      Swal.fire({
+        title: 'Apakah anda ingin Keluar?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya',
+        cancelButtonText: 'Batal'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = "<?php echo base_url('home') ?>";
+        }
+      });
+    }
+  </script>
+  <script>
+    // Toggle subject dropdown menu
+    document.getElementById('subjectDropdownToggle').addEventListener('click', function () {
+      document.getElementById('subjectDropdownMenu').classList.toggle('hidden');
+    });
+
+    // Close subject dropdown menu if clicked outside
+    document.addEventListener('click', function (e) {
+      if (!document.getElementById('subjectDropdownToggle').contains(e.target) &&
+        !document.getElementById('subjectDropdownMenu').contains(e.target)) {
+        document.getElementById('subjectDropdownMenu').classList.add('hidden');
       }
     });
   </script>

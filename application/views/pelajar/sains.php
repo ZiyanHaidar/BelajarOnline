@@ -8,6 +8,15 @@
   <link rel="icon" href="path/to/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
   <style>
+      @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
     body {
       font-family: 'Open Sans', sans-serif;
     }
@@ -139,6 +148,38 @@
   text-decoration: none;
   cursor: pointer;
 }
+  /* Apply animation to the science-content */
+  .science-tabs {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .science-tab {
+      cursor: pointer;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-right: 5px;
+    }
+
+    .science-tab:hover {
+      background-color: #f0f0f0;
+    }
+
+    .science-tab.active {
+      background-color: #3490dc;
+      color: white;
+    }
+
+    .science-content {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
   </style>
 </head>
 
@@ -191,76 +232,118 @@
       </div>
     </header>
 
-  <main class="container mx-auto mt-8">
-    <h2 class="text-2xl font-semibold mb-4">Mata Pelajaran Unggulan</h2>
+    <main class="container mx-auto mt-8">
+    <section id="sains" class="mb-8">
+      <h2 class="text-2xl font-bold mb-4">Ilmu Sains</h2>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      <!-- Course Cards or Thumbnails -->
-      <div class="bg-white p-4 rounded-md shadow-md">
-        <h3 class="text-lg font-semibold mb-2">Matematika</h3>
-        <p class="text-gray-600 mb-4">Mata pelajaran Matematika membahas konsep-konsep dasar dalam dunia angka, hitungan, dan perhitungan. Siswa akan diajak untuk memahami logika matematika, menyelesaikan permasalahan, dan mengembangkan pemikiran analitis.</p>
-        <a href="<?php echo base_url('pelajar/matematika'); ?>" class="text-blue-500">Pelajari lebih lanjut</a>
+      <!-- General Science Content -->
+      <div id="general-content" class="science-content">
+        <p class="mb-4">
+          Sains adalah metode penyelidikan dan pemahaman tentang alam semesta. Ini melibatkan pengamatan,
+          eksperimen, dan pembuktian untuk menjelaskan berbagai fenomena alam dan kehidupan.
+        </p>
+
+        <h3 class="text-xl font-bold mb-2">Bagaimana Cara Meneliti Ilmu Sains?</h3>
+
+        <ol class="list-decimal pl-8 mb-4">
+          <li>Observasi: Perhatikan fenomena alam atau kejadian tertentu.</li>
+          <li>Eksperimen: Lakukan eksperimen untuk mengumpulkan data.</li>
+          <li>Analisis: Analisis data dan cari pola atau hubungan.</li>
+          <li>Penyimpulan: Ambil kesimpulan berdasarkan data yang ditemukan.</li>
+        </ol>
+
+        <p>
+          Sains membantu kita memahami dunia di sekitar kita dan memberikan jawaban terhadap
+          berbagai pertanyaan tentang kehidupan, alam, dan teknologi.
+        </p>
       </div>
-      <div class="bg-white p-4 rounded-md shadow-md">
-        <h3 class="text-lg font-semibold mb-2">Bahasa Inggris</h3>
-        <p class="text-gray-600 mb-4">Dalam mata pelajaran Bahasa Inggris, siswa akan belajar keterampilan berbahasa Inggris, seperti membaca, menulis, mendengarkan, dan berbicara. Mata pelajaran ini juga mengajarkan tata bahasa dan kosakata untuk berkomunikasi efektif.</p>
-        <a href="<?php echo base_url('pelajar/inggris'); ?>" class="text-blue-500">Pelajari lebih lanjut</a>
-      </div>
-      <div class="bg-white p-4 rounded-md shadow-md">
-        <h3 class="text-lg font-semibold mb-2">Sains</h3>
-        <p class="text-gray-600 mb-4">Sains membawa siswa ke dunia penemuan dan eksplorasi. Melalui mata pelajaran ini, siswa akan memahami konsep-konsep ilmiah, eksperimen, dan aplikasi pengetahuan dalam kehidupan sehari-hari.</p>
-        <a href="<?php echo base_url('pelajar/sains'); ?>" class="text-blue-500">Pelajari lebih lanjut</a>
-      </div>
-      <div class="bg-white p-4 rounded-md shadow-md">
-        <h3 class="text-lg font-semibold mb-2">Sejarah</h3>
-        <p class="text-gray-600 mb-4">Sejarah memperkenalkan siswa pada peristiwa-peristiwa masa lalu dan dampaknya terhadap perkembangan masyarakat. Siswa akan belajar tentang tokoh-tokoh bersejarah, perubahan sosial, dan pentingnya memahami warisan budaya.</p>
-        <a href="<?php echo base_url('pelajar/sejarah'); ?>" class="text-blue-500">Pelajari lebih lanjut</a>
+
+      <!-- Biology Content -->
+      <div id="biology-content" class="science-content" style="display: none;">
+        <h3 class="text-xl font-bold mb-2">Biologi</h3>
+        <p>
+          Biologi adalah ilmu yang mempelajari kehidupan, mulai dari makhluk hidup yang paling sederhana hingga yang paling kompleks.
+          <br>Contoh topik: Anatomi, Ekologi, Genetika.
+        </p>
       </div>
 
-      <!-- Repeat for other subjects -->
+      <!-- Physics Content -->
+      <div id="physics-content" class="science-content" style="display: none;">
+        <h3 class="text-xl font-bold mb-2">Fisika</h3>
+        <p>
+          Fisika adalah ilmu yang mempelajari sifat dasar alam semesta, termasuk materi, energi, gerak, dan kekuatan.
+          <br>Contoh topik: Mekanika, Termodinamika, Optika.
+        </p>
+      </div>
 
-    </div>
+      <!-- Chemistry Content -->
+      <div id="chemistry-content" class="science-content" style="display: none;">
+        <h3 class="text-xl font-bold mb-2">Kimia</h3>
+        <p>
+          Kimia adalah ilmu yang mempelajari sifat, struktur, komposisi, perubahan, dan energi materi.
+          <br>Contoh topik: Reaksi Kimia, Struktur Atom, Tabel Periodik.
+        </p>
+      </div>
 
-    <div class="mt-8">
-      <h2 class="text-2xl font-semibold mb-4">Kategori Mata Pelajaran</h2>
+      <!-- Science tabs -->
+      <ul class="science-tabs">
+      <li class="science-tab active" data-tab="general">General</li>
+<li class="science-tab" data-tab="biology">Biologi</li>
+<li class="science-tab" data-tab="physics">Fisika</li>
+<li class="science-tab" data-tab="chemistry">Kimia</li>
+  <!-- Add more tabs for other science subjects -->
+</ul>
 
-      <ul class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <!-- Subject Categories -->
-        <li class="bg-white p-4 rounded-md shadow-md">
-          <h3 class="text-lg font-semibold mb-2">Matematika Lanjutan</h3>
-          <a href="#" class="text-blue-500">Lihat Mata Pelajaran</a>
-        </li>
-
-        <li class="bg-white p-4 rounded-md shadow-md">
-          <h3 class="text-lg font-semibold mb-2">Bahasa Asing</h3>
-          <a href="#" class="text-blue-500">Lihat Mata Pelajaran</a>
-        </li>
-
-        <li class="bg-white p-4 rounded-md shadow-md">
-          <h3 class="text-lg font-semibold mb-2">Sains Terapan</h3>
-          <a href="#" class="text-blue-500">Lihat Mata Pelajaran</a>
-        </li>
-
-        <li class="bg-white p-4 rounded-md shadow-md">
-          <h3 class="text-lg font-semibold mb-2">Kajian Budaya</h3>
-          <a href="#" class="text-blue-500">Lihat Mata Pelajaran</a>
-        </li>
-      </ul>
-    </div>
+    </section>
   </main>
+
   <div id="myModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <h2>Pilih Mata Pelajaran</h2>
-      <ul>
-        <li><a href="<?php echo base_url('pelajar/matematika'); ?>">1. <br> Matematika</a></li>
-        <li><a href="<?php echo base_url('pelajar/inggris'); ?>">2. <br>Bahasa Inggris</a></li>
-        <li><a href="<?php echo base_url('pelajar/sains'); ?>">3. <br> Sains</a></li>
-        <li><a href="<?php echo base_url('pelajar/sejarah'); ?>">4. <br> Sejarah</a></li>
-        <!-- Tambahkan mata pelajaran lainnya -->
-      </ul>
-    </div>
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>Pilih Mata Pelajaran</h2>
+    <ul>
+      <li><a href="<?php echo base_url('pelajar/matematika'); ?>">1. <br> Matematika</a></li>
+      <li><a href="<?php echo base_url('pelajar/inggris'); ?>">2. <br>Bahasa Inggris</a></li>
+      <li><a href="<?php echo base_url('pelajar/sains'); ?>">3. <br> Sains</a></li>
+      <li><a href="<?php echo base_url('pelajar/sejarah'); ?>">4. <br> Sejarah</a></li>
+      <!-- Tambahkan mata pelajaran lainnya -->
+    </ul>
   </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const tabs = document.querySelectorAll('.science-tab');
+    const contentAreas = document.querySelectorAll('.science-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function () {
+        const tabName = this.getAttribute('data-tab');
+
+        // Deactivate all tabs
+        tabs.forEach(t => t.classList.remove('active'));
+
+        // Activate the clicked tab
+        this.classList.add('active');
+
+        // Hide all content areas
+        contentAreas.forEach(content => {
+          content.style.opacity = '0'; // Set opacity to 0 for a fade-out effect
+          content.style.display = 'none';
+        });
+
+        // Show the selected content area with a fade-in effect
+        const selectedContent = document.getElementById(tabName + '-content');
+        selectedContent.style.display = 'block';
+        setTimeout(() => {
+          selectedContent.style.opacity = '1'; // Set opacity to 1 for a fade-in effect
+        }, 10); // Delay the opacity change to ensure transition effect
+
+        // Optional: Scroll to the selected content area
+        selectedContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  });
+</script>
 <script>
   function openModal() {
     const modal = document.getElementById('myModal');

@@ -192,63 +192,46 @@
     </header>
 
   <main class="container mx-auto mt-8">
-    <h2 class="text-2xl font-semibold mb-4">Mata Pelajaran Unggulan</h2>
+  <h2 class="text-2xl font-semibold mb-4">Apa yang Ingin Anda Pelajari?</h2>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      <!-- Course Cards or Thumbnails -->
-      <div class="bg-white p-4 rounded-md shadow-md">
-        <h3 class="text-lg font-semibold mb-2">Matematika</h3>
-        <p class="text-gray-600 mb-4">Mata pelajaran Matematika membahas konsep-konsep dasar dalam dunia angka, hitungan, dan perhitungan. Siswa akan diajak untuk memahami logika matematika, menyelesaikan permasalahan, dan mengembangkan pemikiran analitis.</p>
-        <a href="<?php echo base_url('pelajar/matematika'); ?>" class="text-blue-500">Pelajari lebih lanjut</a>
-      </div>
-      <div class="bg-white p-4 rounded-md shadow-md">
-        <h3 class="text-lg font-semibold mb-2">Bahasa Inggris</h3>
-        <p class="text-gray-600 mb-4">Dalam mata pelajaran Bahasa Inggris, siswa akan belajar keterampilan berbahasa Inggris, seperti membaca, menulis, mendengarkan, dan berbicara. Mata pelajaran ini juga mengajarkan tata bahasa dan kosakata untuk berkomunikasi efektif.</p>
-        <a href="<?php echo base_url('pelajar/inggris'); ?>" class="text-blue-500">Pelajari lebih lanjut</a>
-      </div>
-      <div class="bg-white p-4 rounded-md shadow-md">
-        <h3 class="text-lg font-semibold mb-2">Sains</h3>
-        <p class="text-gray-600 mb-4">Sains membawa siswa ke dunia penemuan dan eksplorasi. Melalui mata pelajaran ini, siswa akan memahami konsep-konsep ilmiah, eksperimen, dan aplikasi pengetahuan dalam kehidupan sehari-hari.</p>
-        <a href="<?php echo base_url('pelajar/sains'); ?>" class="text-blue-500">Pelajari lebih lanjut</a>
-      </div>
-      <div class="bg-white p-4 rounded-md shadow-md">
-        <h3 class="text-lg font-semibold mb-2">Sejarah</h3>
-        <p class="text-gray-600 mb-4">Sejarah memperkenalkan siswa pada peristiwa-peristiwa masa lalu dan dampaknya terhadap perkembangan masyarakat. Siswa akan belajar tentang tokoh-tokoh bersejarah, perubahan sosial, dan pentingnya memahami warisan budaya.</p>
-        <a href="<?php echo base_url('pelajar/sejarah'); ?>" class="text-blue-500">Pelajari lebih lanjut</a>
-      </div>
+  <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Addition Section -->
+    <div class="bg-white p-6 rounded-lg shadow-md">
+  <h3 class="text-xl font-semibold mb-4">Pertambahan</h3>
+  <p class="text-gray-700">
+    Pelajari konsep pertambahan dan cara penyelesaiannya. Pahami bagaimana melakukan operasi pertambahan dengan mudah.
+  </p>
+  <br>
+  <a href="<?php echo base_url('pelajar/pertambahan'); ?>" class="mt-2 bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600">Pelajari Pertambahan</a>
+  <button class="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600" onclick="openModal('Pertambahan')">Mulai Mengerjakan Kuis</button>
+</div>
 
-      <!-- Repeat for other subjects -->
-
+    <!-- Multiplication Section -->
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <h3 class="text-xl font-semibold mb-4">Perkalian</h3>
+      <p class="text-gray-700">
+        Temukan konsep perkalian dan langkah-langkah penyelesaiannya. Kuasai cara mengalikan angka dengan efisien.
+      </p>
+      <br>
+     <a href="<?php echo base_url('pelajar/perkalian'); ?>" class="mt-2 bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600">Pelajari Perkalian</a>
+      <button class="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600" onclick="openModal('Perkalian')">Mulai Mengerjakan Kuis</button>
     </div>
 
-    <div class="mt-8">
-      <h2 class="text-2xl font-semibold mb-4">Kategori Mata Pelajaran</h2>
-
-      <ul class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <!-- Subject Categories -->
-        <li class="bg-white p-4 rounded-md shadow-md">
-          <h3 class="text-lg font-semibold mb-2">Matematika Lanjutan</h3>
-          <a href="#" class="text-blue-500">Lihat Mata Pelajaran</a>
-        </li>
-
-        <li class="bg-white p-4 rounded-md shadow-md">
-          <h3 class="text-lg font-semibold mb-2">Bahasa Asing</h3>
-          <a href="#" class="text-blue-500">Lihat Mata Pelajaran</a>
-        </li>
-
-        <li class="bg-white p-4 rounded-md shadow-md">
-          <h3 class="text-lg font-semibold mb-2">Sains Terapan</h3>
-          <a href="#" class="text-blue-500">Lihat Mata Pelajaran</a>
-        </li>
-
-        <li class="bg-white p-4 rounded-md shadow-md">
-          <h3 class="text-lg font-semibold mb-2">Kajian Budaya</h3>
-          <a href="#" class="text-blue-500">Lihat Mata Pelajaran</a>
-        </li>
-      </ul>
+    <!-- Division Section -->
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <h3 class="text-xl font-semibold mb-4">Pembagian</h3>
+      <p class="text-gray-700">
+        Pelajari konsep pembagian dan teknik penyelesaiannya. Pahami bagaimana membagi angka dengan benar.
+      </p>
+      <br>
+      <a href="<?php echo base_url('pelajar/pembagian'); ?>" class="mt-2 bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600">Pelajari Pembagian</a>
+      <button class="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600" onclick="openModal('Pembagian')">Mulai Mengerjakan Kuis</button>
     </div>
-  </main>
-  <div id="myModal" class="modal">
+
+
+  </section>
+</main>
+<div id="myModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
       <h2>Pilih Mata Pelajaran</h2>

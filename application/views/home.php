@@ -303,7 +303,7 @@
     <div class="container">
       <h2>Belajar Apapun, Kapanpun,</h2>
       <p>Bergabunglah dengan ribuan orang yang belajar secara online.</p>
-      <a href="#" class="cta-button">Mulai Belajar</a>
+      <a href="<?php echo base_url('auth'); ?>" class="cta-button">Mulai Belajar</a>
     </div>
   </section>
 
@@ -363,34 +363,6 @@
       <p>&copy; 2024 Belajar Online</p>
     </div>
   </footer>
-  <!-- Tambahkan script ini di bagian bawah dari tag <body> -->
-  <script>
-    // Fungsi untuk cek status login
-    function checkLoginStatus() {
-      // Disini Anda dapat menambahkan logika untuk memeriksa status login, misalnya:
-      let isLoggedIn = false; // Ganti ini dengan logika sesuai dengan aplikasi Anda
-
-      return isLoggedIn;
-    }
-
-    // Fungsi untuk mengarahkan ke halaman login jika belum login saat tombol "Mulai Belajar" diklik
-    function redirectToLogin() {
-      let loggedIn = checkLoginStatus();
-      if (!loggedIn) {
-        // Jika belum login, alihkan ke halaman login
-        window.location.href = "auth"; // Ganti "login.html" dengan halaman login Anda
-      }
-    }
-
-    // Tambahkan event listener untuk tombol "Mulai Belajar"
-    document.addEventListener("DOMContentLoaded", function () {
-      const startLearningButton = document.querySelector('.cta-button');
-
-      startLearningButton.addEventListener('click', function (event) {
-        redirectToLogin();
-      });
-    });
-  </script>
 
 </body>
 

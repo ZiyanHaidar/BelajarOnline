@@ -297,6 +297,36 @@
             transform: translateY(-50%);
             cursor: pointer;
         }
+        .gender-selection {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .gender-option {
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid transparent; /* Add this line for initial border */
+        }
+
+        .gender-option.selected {
+            border-color: #4CAF50; /* Add this line for the selected border color */
+        }
+
+    .blue {
+        background-color: #3498db; /* Blue color */
+        color: #ffffff;
+    }
+
+    .pink {
+        background-color: #e91e63; /* Pink color */
+        color: #ffffff;
+    }
     </style>
 </head>
 
@@ -316,7 +346,7 @@
     <div class="form-container" id="register-form">
         <h2>Daftar</h2>
 
-        <form action="<?php echo base_url('auth/aksi_register'); ?>" method="post">
+        <form action="<?php echo base_url('auth/aksi_register'); ?>" method="post" onsubmit="return validateForm()">
             <br>
             <div class="row gx-3 mb-3">
                 <div class="col-md-6">
@@ -337,13 +367,27 @@
                 <input type="email" id="email" name="email" required>
             </div>
             <div class="form-group">
-                <label for="password">Password:</label>
-                <div class="password-input-container">
-                    <input type="password" id="password" name="password" minlength="8" required>
-                    <i class="password-toggle fas fa-eye-slash" onclick="toggleRegisterPassword()"></i>
-                </div>
+    <label for="password">Password:</label>
+    <div class="password-input-container">
+        <input type="password" id="password" name="password" minlength="8" required>
+        <i class="password-toggle fas fa-eye-slash" onclick="toggleRegisterPassword()"></i>
+    </div>
+</div>
+<small style="color:red">*Password minimal 8 karakter*</small>
+
+<!-- Gender selection with colored icons and boxes -->
+<div class="form-group" >
+        <!-- Remove the label for gender -->
+        <div class="gender-selection">
+            <div class="gender-option blue" onclick="selectGender('Laki-laki', this)">
+                <i class="fas fa-male"></i>
             </div>
-            <small style="color:red">*Password minimal 8 karakter*</small>
+            <div class="gender-option pink" onclick="selectGender('Perempuan', this)">
+                <i class="fas fa-female"></i>
+            </div>
+            <input type="hidden" name="gender" id="gender-input" required>
+        </div>
+    </div>
             <button type="submit">Daftar</button>
 
             <a href="<?php echo base_url('auth'); ?>">Sudah memiliki akun?</a>
@@ -360,7 +404,40 @@
 
     <!-- Tambahkan Font Awesome CDN untuk ikon -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script>
+    function validateForm() {
+        // Check if gender is selected
+        const selectedGender = document.getElementById('gender-input').value;
 
+        if (!selectedGender) {
+            // Gender not selected, show an error message
+            Swal.fire({
+                title: 'Error',
+                text: 'Please select your gender.',
+                icon: 'error',
+                showConfirmButton: true
+            });
+
+            // Prevent form submission
+            return false;
+        }
+
+        // Continue with form submission
+        return true;
+    }
+
+    function selectGender(gender, element) {
+        // Remove the "selected" class from all gender options
+        const allGenderOptions = document.querySelectorAll('.gender-option');
+        allGenderOptions.forEach(option => option.classList.remove('selected'));
+
+        // Add the "selected" class to the clicked gender option
+        element.classList.add('selected');
+
+        // Update the hidden input field with the selected gender
+        document.getElementById('gender-input').value = gender;
+    }
+</script>
     <script>
         function toggleRegisterPassword() {
             const passwordField = document.getElementById("password");
@@ -402,6 +479,17 @@
         });
         </script>
         <?php } ?>
+        <?php if ($this->session->flashdata('success')) { ?>
+        <script>
+            Swal.fire({
+                title: 'Daftar Berhasil',
+                text: '<?php echo $this->session->flashdata('success'); ?>',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        </script>
+    <?php } ?>
 </body>
 
 </html>

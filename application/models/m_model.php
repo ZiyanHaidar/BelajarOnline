@@ -1,7 +1,8 @@
 <?php
 
 class M_model extends CI_Model{
-    function get_data($table){
+    public function get_data($table)
+    {
         return $this->db->get($table);
     }
 
@@ -27,6 +28,29 @@ class M_model extends CI_Model{
             return false;
         }
     }
+    public function getUserById($id) {
+        // Assuming 'users' is your table name, adjust it accordingly
+        $this->db->where('id', $id);
+        $query = $this->db->get('user');
+
+        // Check if a user with the given ID exists
+        if ($query->num_rows() > 0) {
+            // Return the user data as an object
+            return $query->row();
+        } else {
+            // Return null if the user with the given ID is not found
+            return null;
+        }
+    }
+    public function updateUserData($id, $data) {
+        // Assuming 'users' is your table name, adjust it accordingly
+        $this->db->where('id', $id);
+        $this->db->update('user', $data);
+
+        // Return the number of affected rows after the update
+        return $this->db->affected_rows();
+    }
+
     public function getPasswordByIdd($id)
     {
         $this->db->select('password');
@@ -59,23 +83,13 @@ class M_model extends CI_Model{
         // Masukkan data ke dalam tabel 'user' dan kembalikan hasilnya
             return $this->db->insert('user', $data);
     }
-    public function update_data($table, $data, $where)
+    public function get_user_by_id($user_id)
     {
-        $this->db->update($table, $data, $where);
-        return $this->db->affected_rows();
-    }
+        $this->db->where('id', $user_id);
+        $query = $this->db->get('user');
 
-    public function image_akun()
-    {
-        $id = $this->session->akundata('id');
-        $this->db->select('image');
-        $this->db->from('user');
-        $this->db->where('id');
-        $query = $this->db->get();
-
-        if ($query->num_rows() > 0) {
-            $result = $query->row();
-            return $result->image;
+        if ($query->num_rows() == 1) {
+            return $query->row();
         } else {
             return false;
         }

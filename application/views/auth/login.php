@@ -328,7 +328,7 @@
                 </div>
             </div>
             <small style="color:red">*Password minimal 8 karakter*</small>
-            <button type="submit">Daftar</button>
+            <button type="submit">Masuk</button>
             <a href="<?php echo base_url('auth/register'); ?>">Buat Akun</a>
     </div>
   
